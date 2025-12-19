@@ -1,0 +1,192 @@
+Here is your perfect, ready-to-copy Lovable prompt to generate the entire MVP for the Leave Management System.
+It’s clean, structured, and includes everything Lovable needs — pages, logic, roles, calendar system, UI layout, backend schema, and workflows.
+🚀 LOVABLE PROMPT — Leave Management System (Full MVP Build)
+Copy + Paste into Lovable:
+TITLE:
+Leave Management System — Staff Self-Service Leave Portal (MVP)
+DESCRIPTION / BUILD PROMPT:
+I want you to build a complete MVP web application called Leave Management System (LMS).
+This system is used by staff, supervisors, admins, and HR in a cleaning/FM company to apply for leave, approve requests, and manage leave day availability.
+The app must include:
+✅ 1. Technology Requirements
+Full-stack web app
+React frontend (or Next.js if required)
+Backend using Supabase (auth + database + row-level security)
+Role-based access control (RBAC)
+Mobile-friendly UI (admin & staff use phones)
+✅ 2. Authentication
+Users must log in with:
+Name
+Company ID
+Password
+On first login, users set their password.
+Roles must be automatically assigned from the Users table:
+staff
+supervisor
+admin
+hr
+Redirect based on role to the correct dashboard.
+✅ 3. Dashboard (Hero Section)
+The main dashboard should have:
+A hero calendar with color-coded leave availability:
+Green — available days
+Red — full / no more slots
+Yellow — user’s pending request days
+Blue — user’s approved leave days
+Gray — past days
+The calendar is central to the app.
+Dashboard Cards:
+Leave balance
+Pending applications
+Approved leave count
+Project leave limit (per day)
+✅ 4. Staff Features
+Staff can:
+View leave balance
+View the availability calendar
+Apply for leave
+Select start date and end date
+Add a reason
+Submit the request
+See full history of requests
+Receive notifications when:
+Approved
+Rejected
+Modified
+✅ 5. Supervisor Features
+Supervisor can:
+View all staff under their project
+View leave requests
+Approve/reject requests
+Edit/change dates
+View monthly availability calendar
+See which days are reaching the slot limit
+✅ 6. Admin Features
+Admin can:
+Leave Slot Management
+Set daily max leave slots per project
+Edit slot limits
+View per-day slot usage (used_slots)
+User Management
+Create/edit/delete users
+Assign project
+Assign role
+Reset passwords
+Reports
+Export approved leave to Excel
+View month summary for each project
+✅ 7. HR Features
+View all requests across all projects
+Filter by approved/pending/rejected
+Final approval step (optional toggle)
+Export leave reports to Excel/PDF
+✅ 8. Database Schema (Create in Supabase)
+Table: users
+id (uuid)
+name (text)
+company_id (text)
+password_hash
+role (text: staff, supervisor, admin, hr)
+project_id (uuid)
+leave_balance (int)
+created_at
+Table: leave_requests
+id
+user_id
+supervisor_id
+status (pending, approved, rejected, hr_pending)
+start_date
+end_date
+days_count
+reason
+created_at
+Table: leave_slots
+Used to track how many people can go on leave each day.
+id
+project_id
+date
+max_slots (int)
+used_slots (int)
+Table: projects
+id
+project_name
+location
+admin_id
+✅ 9. Logic Requirements
+Leave Availability Logic
+When a user selects dates:
+Count how many slots are used for each date
+Compare to max slots
+If full → mark date as unavailable (red)
+If user’s pending or approved → color appropriately
+Leave Application Logic
+User submits
+Check balance
+Check slots
+Create request
+Notify supervisor
+Approval Logic
+Supervisor approves →
+Increase used_slots for each day
+Reduce user leave_balance
+Send notification
+Update calendar color
+Supervisor rejects →
+Notify user
+No change to balance or slots
+✅ 10. Calendar UI Requirements
+Use a clean monthly calendar UI with:
+Clickable dates
+Hover tooltips showing:
+max slots
+used slots
+available slots
+Must support:
+Month switching
+Today highlight
+✅ 11. Pages Required
+Staff:
+Login
+Dashboard
+Calendar
+Apply for Leave
+My Requests
+Supervisor:
+Dashboard
+Team Requests
+Approvals
+Calendar
+Admin:
+Dashboard
+Manage Users
+Manage Slots
+Reports
+HR:
+Global Requests
+Reports
+✅ 12. Notifications
+In-app notifications for:
+Application submitted
+Approved
+Rejected
+Modified
+Notification bell icon in navbar.
+✅ 13. Future-ready
+Design the architecture so API integration with the company’s HR software can be added later using environment variables.
+⚡ THE GOAL
+Build a working, clean, mobile-friendly MVP that covers:
+Role-based login
+Leave calendar
+Leave application workflow
+Approvals
+Slot limits
+Admin tools
+Reports
+This MVP should be fully usable for demo or pilot deployment at a real site.
+🟢 End of Prompt
+If you want, I can also generate:
+👉 A Supabase SQL script for all tables
+👉 UI mockup descriptions
+👉 A version of the prompt optimized for a mobile-first app
+👉 Onboarding flow for staff with low digital literacy
+Just tell me what you need next.
